@@ -72,38 +72,55 @@ Dev Containers: Reopen in Container
 
 ---
 
-## Abrir el notebook
-
-Abre `test-notebook.ipynb` desde VS Code.
-
----
-
 ## Obtener el token de Jupyter
 
 ```bash
 docker logs spark-notebook
 ```
-
+Ten cuidado de que estés obteniendo los logs del contenedor `spark-notebook` y no de ninguno de los otros.
 Busca:
 
 ```text
 http://127.0.0.1:8888/tree?token=XXXXXXXX
 ```
 
+![Obtener token](/images/get-token.png)
+
 ---
 
-## Conectarse a Jupyter
+## Abrir el notebook
 
-- URL: `http://127.0.0.1:8888`
-- Token: el obtenido de los logs
+Abre `test-notebook.ipynb` desde VS Code.
 
-**Usa `127.0.0.1`, no `localhost`**.
+![Abrir notebook](/images/open-notebook.png)
 
 ---
 
 ## Seleccionar kernel
 
-Selecciona **Python 3 (ipykernel)**.
+Desde Visual Studio Code, una vez abierto el Notebook, dale al icono de seleccionar el Kernel de Jupyter:
+![Selecciona el kernel clicando en el icono](/images/select-kernel.png)
+
+A continuación elige *Existing Jupyter Server*:
+![Existing Jupyter Server](/images/existing-jupyter-server.png)
+
+Ahora te pedirá la URL del servidor (véase la imagen a continuación) y tienes que introducir el valor `http://127.0.0.1:8888`, **usa `127.0.0.1`, no `localhost`**.
+
+![URL del servidor](/images/jupyter-server-url.png)
+
+Te va a pedir, a continuación, la password y aquí es donde tienes que introducir el token que has obtenido antes de los logs del contenedor `spark-notebook`.
+
+![Introduce password](/images/password-prompt.png)
+
+Te pide ahora que confirmes el nombre que le quieres dar a ese servidor en tu lista de servidores a los que conectarse y por defecto te propone `127.0.0.1`, puedes simplemente confirmar pulsando la tecla *enter*.
+
+![Confirma el nombre del servidor](/images/confirm-server-name.png)
+
+Y ahora ya sí, como último paso, te pide que elijas el kernel de entre los disponibles en el servidor Jupyter al que te acabas de conectar, sólo te saldrá uno *Python 3 (ipykernel)*, escógelo y dale al *enter*.
+
+![Escoge kernel y enter](/images/select-kernel-in-connected-server.png)
+
+
 
 ---
 
