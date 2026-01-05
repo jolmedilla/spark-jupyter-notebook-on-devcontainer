@@ -5,6 +5,8 @@ services:
     image: apache/spark:4.1.0-python3
     container_name: spark-master
     hostname: spark-master
+    volumes:
+      - .:/workspace    
     environment:
       - PYSPARK_PYTHON=python3
       - PYSPARK_DRIVER_PYTHON=python3     
@@ -23,6 +25,8 @@ services:
     container_name: spark-worker
     depends_on:
       - spark-master
+    volumes:
+      - .:/workspace      
     environment:
       - PYSPARK_PYTHON=python3
       - PYSPARK_DRIVER_PYTHON=python3    
