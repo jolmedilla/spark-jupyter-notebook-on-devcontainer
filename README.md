@@ -37,7 +37,8 @@ Todo el entorno se ejecuta en Docker y se integra con Visual Studio Code mediant
 Imagen base de Apache Spark (4.1.0) con Python y librerías adicionales necesarias para notebooks y ML.
 * `docker-compose.yml` 
 
-Define el clúster Spark (master + worker) y el servicio de Jupyter Notebook.
+Define el clúster Spark (master + worker) y el servicio de Jupyter Notebook. Cada nodo monta el directorio actual en `/worskpace` de tal modo
+que permite cargar ficheros en él con el comando `spark.read.csv` u otros similares sin necesidad de usar hadoop.
 * `test-notebook.ipynb`
 
 Notebook de ejemplo. Se puede duplicar o renombrar para desarrollar la práctica.
