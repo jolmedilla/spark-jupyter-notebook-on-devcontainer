@@ -61,7 +61,7 @@ cd spark-jupyter-notebook-on-devcontainer
 ```bash
 code .
 ```
-
+También puedes abrir Visual Studio Code desde el icono de tu sistema operativo y desde el mismo abrir la carpeta (*Open Folder*) donde se encuentra el repositorio.
 ### Reabrir en contenedor
 
 Desde la paleta de comandos:
@@ -126,19 +126,44 @@ Y ahora ya sí, como último paso, te pide que elijas el kernel de entre los dis
 
 ## Verificación rápida
 
+Hay una celda que contiene el siguiente código, ejecútala y comprueba que no da error
 ```python
 from pyspark.sql import SparkSession
 
 spark = (
     SparkSession.builder
-    .appName("Test")
+    .appName("SalesForecast")
     .master("spark://spark-master:7077")
     .getOrCreate()
 )
-
+spark.sparkContext.setLogLevel("ERROR")
 spark.range(10).show()
+print(spark.sparkContext.master)
 ```
+Y que te da la siguiente salida:
+```
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/01/05 08:05:09 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
++---+
+| id|
++---+
+|  0|
+|  1|
+|  2|
+|  3|
+|  4|
+|  5|
+|  6|
+|  7|
+|  8|
+|  9|
++---+
 
+spark://spark-master:7077
+```
 ---
 
 ## Reducir logs (opcional)
