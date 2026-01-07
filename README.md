@@ -56,6 +56,11 @@ Configuración para que Visual Studio Code se conecte automáticamente al entorn
 git clone git@github.com:jolmedilla/spark-jupyter-notebook-on-devcontainer.git
 cd spark-jupyter-notebook-on-devcontainer
 ```
+O bien
+```bash
+git clone https://github.com/jolmedilla/spark-jupyter-notebook-on-devcontainer.git
+cd spark-jupyter-notebook-on-devcontainer
+```
 
 ### Abrir en Visual Studio Code
 
@@ -65,7 +70,7 @@ code .
 También puedes abrir Visual Studio Code desde el icono de tu sistema operativo y desde el mismo abrir la carpeta (*Open Folder*) donde se encuentra el repositorio.
 ### Reabrir en contenedor
 
-Desde la paleta de comandos:
+Asegúrate de que Docker está corriendo y desde la paleta de comandos:
 
 ```text
 Dev Containers: Reopen in Container
