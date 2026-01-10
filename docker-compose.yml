@@ -48,6 +48,8 @@ services:
       - spark-master
     volumes:
       - .:/workspace
+# Comment this line if it does not work in Windows      
+      - ~/.ssh:/root/.ssh:ro      
     working_dir: /workspace
     environment:
       - JUPYTER_PASSWORD="datacamp"

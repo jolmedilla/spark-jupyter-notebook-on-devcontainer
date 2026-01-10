@@ -46,6 +46,13 @@ Notebook de ejemplo. Se puede duplicar o renombrar para desarrollar la práctica
 
 Configuración para que Visual Studio Code se conecte automáticamente al entorno Docker.
 
+### Nota sobre configuración de `git` y Windows
+
+He incluido el paquete `git` en el contenedor de desarrollo `spark-notebook`, vía el `Dockerfile`, para que se pueda hacer control de versiones desde el contenedor y Visual Studio Code, para ello también he añadido en el fichero `docker-compose.yml` configuración para que monte el directorio `~/.ssh/` (la configuración ssh del directorio `home` del usuario) pero **esto no lo he podido probar en Windows, no sé si funcionará**. Si no funciona o da algún tipo de error, simplemente busca la siguiente linea en `docker-compose.yml` y coméntala:
+```
+      - ~/.ssh:/root/.ssh:ro 
+```
+
 ---
 
 ## Cómo arrancar el entorno
